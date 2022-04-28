@@ -42,7 +42,7 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
         return $this->validate($value, $this->rules(), $attribute);
     }
@@ -56,7 +56,7 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
      *
      * @return boolean
      */
-    protected function validate($value, $rules, $name = 'variable')
+    protected function validate($value, $rules, string $name = 'variable'): bool
     {
         $rules = $this->prepareRules($rules);
 
@@ -90,7 +90,7 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
      *
      * @return string
      */
-    public function message()
+    public function message(): string
     {
         $errors = $this->validator->errors();
 
@@ -99,5 +99,15 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
         }
 
         return 'The :attribute is not valid.';
+    }
+    
+    /**
+     * Get the validation rules with exceptions removed.
+     *
+     * @return array
+     */
+    public function getRules(): array
+    {
+        return $this->prepareRules($this->rules());
     }
 }

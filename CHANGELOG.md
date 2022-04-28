@@ -2,6 +2,14 @@
 
 All notable changes to this package will be documented in this file
 
+## [v0.5.2] - 2022-04-28
+### Added
+- `getRules()` method to `AbstractFieldRuleSet`
+
+## [v0.5.1] - 2022-04-08
+### Added
+- illuminate/support v9 support
+
 ## [v0.5.0] - 2020-12-30
 ### Added
 - PHP 8 support
