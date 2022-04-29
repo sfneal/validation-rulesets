@@ -2,10 +2,13 @@
 
 All notable changes to this package will be documented in this file
 
-## [v0.5.3] - 2022-04-28
+## [v0.5.4] - 2022-04-29
+### Added
+- `getRulesRequired()` convenience method to `AbstractFieldRuleSet`
+
+## [v0.5.3] - 2022-04-29
 ### Added
 - $prepend & $append params to `AbstractFieldRuleSet::getRules()` method
-
 
 ## [v0.5.2] - 2022-04-28
 ### Added
