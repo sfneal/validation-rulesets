@@ -103,11 +103,14 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     
     /**
      * Get the validation rules with exceptions removed.
+     * - optionally 'prepend' or 'append' additional rules
      *
+     * @param array $prepend
+     * @param array $append
      * @return array
      */
-    public function getRules(): array
+    public function getRules(array $prepend = [], array $append = []): array
     {
-        return $this->prepareRules($this->rules());
+        return $this->prepareRules(array_merge($prepend, $this->rules(), $append));
     }
 }

@@ -2,6 +2,11 @@
 
 All notable changes to this package will be documented in this file
 
+## [v0.5.3] - 2022-04-28
+### Added
+- $prepend & $append params to `AbstractFieldRuleSet::getRules()` method
+
+
 ## [v0.5.2] - 2022-04-28
 ### Added
 - `getRules()` method to `AbstractFieldRuleSet`
