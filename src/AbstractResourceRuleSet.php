@@ -46,7 +46,7 @@ abstract class AbstractResourceRuleSet implements ResourceRuleSetContract
 
     protected function guardAgainstInvalidKey(string $key, array $rules)
     {
-        if (!array_key_exists($key, $rules)) {
+        if (! array_key_exists($key, $rules)) {
             throw new OutOfBoundsException("invalid key, '{$key}'");
         }
     }
