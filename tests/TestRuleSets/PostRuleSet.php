@@ -6,7 +6,7 @@ use Telkins\Validation\AbstractResourceRuleSet;
 
 class PostRuleSet extends AbstractResourceRuleSet
 {
-    protected function provideRules() : array
+    protected function provideRules(): array
     {
         return [
             'subject' => [
@@ -20,7 +20,7 @@ class PostRuleSet extends AbstractResourceRuleSet
         ];
     }
 
-    protected function provideCreationRules() : array
+    protected function provideCreationRules(): array
     {
         return [
             'author_id' => [
@@ -32,7 +32,7 @@ class PostRuleSet extends AbstractResourceRuleSet
         ];
     }
 
-    protected function provideUpdateRules() : array
+    protected function provideUpdateRules(): array
     {
         return [
             'reason' => [
