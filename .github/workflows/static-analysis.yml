@@ -1,0 +1,52 @@
+name: Static Analysis
+
+on:
+  push:
+    paths:
+      - '**.php'
+      - '**/composer.json'
+      - '**/composer.lock'
+  pull_request:
+
+jobs:
+  static-analysis:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ ubuntu-latest ]
+        php: [7.3, 7.4, 8.0, 8.1]
+
+    name: Static Analysis
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: Get Composer Cache Directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+
+      - name: Composer Cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: "${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}"
+          restore-keys: ${{ runner.os }}-composer-
+
+      - name: Install composer dependencies
+        run: composer install
+
+      - name: Install Larastan package
+        run: composer require larastan/larastan --dev
+
+      - name: Run Larastan static analysis
+        run: ./vendor/bin/phpstan analyse --memory-limit=2G
