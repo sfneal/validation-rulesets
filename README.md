@@ -1,9 +1,9 @@
 # A simple way to keep your Laravel validation rules a bit more DRY.
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/sfneal/laravel-validation-rulesets.svg?style=flat-square)](https://packagist.org/packages/sfneal/laravel-validation-rulesets)
-[![Build Status](https://img.shields.io/travis/sfneal/laravel-validation-rulesets/master.svg?style=flat-square)](https://travis-ci.org/sfneal/laravel-validation-rulesets)
-[![Quality Score](https://img.shields.io/scrutinizer/g/sfneal/laravel-validation-rulesets.svg?style=flat-square)](https://scrutinizer-ci.com/g/sfneal/laravel-validation-rulesets)
-[![Total Downloads](https://img.shields.io/packagist/dt/sfneal/laravel-validation-rulesets.svg?style=flat-square)](https://packagist.org/packages/sfneal/laravel-validation-rulesets)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/sfneal/validation-rulesets.svg?style=flat-square)](https://packagist.org/packages/sfneal/validation-rulesets)
+[![Build Status](https://img.shields.io/travis/sfneal/validation-rulesets/master.svg?style=flat-square)](https://travis-ci.org/sfneal/validation-rulesets)
+[![Quality Score](https://img.shields.io/scrutinizer/g/sfneal/validation-rulesets.svg?style=flat-square)](https://scrutinizer-ci.com/g/sfneal/validation-rulesets)
+[![Total Downloads](https://img.shields.io/packagist/dt/sfneal/validation-rulesets.svg?style=flat-square)](https://packagist.org/packages/sfneal/validation-rulesets)
 
 
 This package provides a relatively simple way to organize, reuse, and DRY up your Laravel validation rules.  It was put together after working with Laravel for quite some time and specifically while building an API that also uses Laravel Nova to manage resources.  There was a need to provide validation on the Laravel Nova side of things on a field-by-field basis.  Then, on the API side of things, there was also a need to provide those same validation rules.  These could be on a field-by-field basis or by resource.
@@ -19,7 +19,7 @@ The result of these new classes is that one can more easily put field- and resou
 You can install the package via composer:
 
 ```bash
-composer require sfneal/laravel-validation-rulesets
+composer require sfneal/validation-rulesets
 ```
 
 ## Field Rule Sets
