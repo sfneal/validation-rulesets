@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Validator;
 use Telkins\Validation\Contracts\FieldRuleSetContract;
 
 /**
- * Source/inspiration: https://medium.com/@juampi92/laravel-5-5-validation-ruleception-rule-inside-rule-2762d2cf4471
+ * Source/inspiration: https://medium.com/@juampi92/laravel-5-5-validation-ruleception-rule-inside-rule-2762d2cf4471.
  */
 abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
 {
@@ -25,7 +25,7 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     /**
      * Use the rule set without the specified rules.
      *
-     * @param mixed $rules
+     * @param  mixed  $rules
      * @return self
      */
     public function except($rules): self
@@ -47,14 +47,13 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
         return $this->validate($value, $this->rules(), $attribute);
     }
 
-    abstract public function rules() : array;
+    abstract public function rules(): array;
 
     /**
-     * @param mixed $value
-     * @param array|string|Rule $rules
-     * @param string $name Name of the property (optional)
-     *
-     * @return boolean
+     * @param  mixed  $value
+     * @param  array|string|Rule  $rules
+     * @param  string  $name  Name of the property (optional)
+     * @return bool
      */
     protected function validate($value, $rules, string $name = 'variable'): bool
     {
@@ -70,12 +69,12 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     /**
      * Prepare the rules.
      *
-     * @param  mixed $rules
+     * @param  mixed  $rules
      * @return array
      */
     protected function prepareRules($rules): array
     {
-        if (!is_string($rules) && !is_array($rules)) {
+        if (! is_string($rules) && ! is_array($rules)) {
             $rules = [$rules];
         }
 
@@ -100,26 +99,26 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
 
         return 'The :attribute is not valid.';
     }
-    
+
     /**
      * Get the validation rules with exceptions removed.
-     * - optionally 'prepend' or 'append' additional rules
+     * - optionally 'prepend' or 'append' additional rules.
      *
-     * @param array $prepend
-     * @param array $append
+     * @param  array  $prepend
+     * @param  array  $append
      * @return array
      */
     public function getRules(array $prepend = [], array $append = []): array
     {
         return $this->prepareRules(array_merge($prepend, $this->rules(), $append));
     }
-    
+
     /**
      * Get the validation rules with exceptions removed & 'required' rule prepended.
-     * - optionally 'prepend' or 'append' additional rules
+     * - optionally 'prepend' or 'append' additional rules.
      *
-     * @param array $prepend
-     * @param array $append
+     * @param  array  $prepend
+     * @param  array  $append
      * @return array
      */
     public function getRulesRequired(array $prepend = [], array $append = []): array

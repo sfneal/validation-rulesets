@@ -2,8 +2,8 @@
 
 namespace Telkins\Validation\Tests;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 class MakeResourceRuleSetCommandTest extends TestCase
 {
@@ -18,12 +18,12 @@ class MakeResourceRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        
+
         $output = Artisan::output();
         $this->assertStringContainsString('ResourceRuleSet', $output);
         $this->assertStringContainsString('created successfully.', $output);
 
-        $shouldOutputFilePath = $this->app['path'] . '/Rules/ResourceRuleSets/PostRuleSet.php';
+        $shouldOutputFilePath = $this->app['path'].'/Rules/ResourceRuleSets/PostRuleSet.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File not found in default app/Rules/ResourceRuleSets folder');
 
@@ -45,12 +45,12 @@ class MakeResourceRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        
+
         $output = Artisan::output();
         $this->assertStringContainsString('ResourceRuleSet', $output);
         $this->assertStringContainsString('created successfully.', $output);
 
-        $shouldOutputFilePath = $this->app['path'] . '/MyResourceRuleSets/PostRuleSet.php';
+        $shouldOutputFilePath = $this->app['path'].'/MyResourceRuleSets/PostRuleSet.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File not found in custom app/MyResourceRuleSets folder');
 

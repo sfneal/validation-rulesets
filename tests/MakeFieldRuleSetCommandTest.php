@@ -2,8 +2,8 @@
 
 namespace Telkins\Validation\Tests;
 
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
 
 class MakeFieldRuleSetCommandTest extends TestCase
 {
@@ -23,7 +23,7 @@ class MakeFieldRuleSetCommandTest extends TestCase
         $this->assertStringContainsString('FieldRuleSet', $output);
         $this->assertStringContainsString('created successfully.', $output);
 
-        $shouldOutputFilePath = $this->app['path'] . '/Rules/FieldRuleSets/EmailRuleSet.php';
+        $shouldOutputFilePath = $this->app['path'].'/Rules/FieldRuleSets/EmailRuleSet.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File not found in default app/Rules/FieldRuleSets folder');
 
@@ -46,12 +46,12 @@ class MakeFieldRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        
+
         $output = Artisan::output();
         $this->assertStringContainsString('FieldRuleSet', $output);
         $this->assertStringContainsString('created successfully.', $output);
 
-        $shouldOutputFilePath = $this->app['path'] . '/Rules/FieldRuleSets/EmailRuleSet.php';
+        $shouldOutputFilePath = $this->app['path'].'/Rules/FieldRuleSets/EmailRuleSet.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File not found in default app/Rules/FieldRuleSets folder');
 
@@ -75,12 +75,12 @@ class MakeFieldRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-        
+
         $output = Artisan::output();
         $this->assertStringContainsString('FieldRuleSet', $output);
         $this->assertStringContainsString('created successfully.', $output);
 
-        $shouldOutputFilePath = $this->app['path'] . '/MyFieldRuleSets/EmailRuleSet.php';
+        $shouldOutputFilePath = $this->app['path'].'/MyFieldRuleSets/EmailRuleSet.php';
 
         $this->assertTrue(File::exists($shouldOutputFilePath), 'File not found in custom app/MyFieldRuleSets folder');
 

@@ -2,8 +2,8 @@
 
 namespace Telkins\Validation\Console\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 abstract class AbstractMakeRuleSet extends GeneratorCommand

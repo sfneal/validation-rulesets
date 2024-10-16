@@ -3,12 +3,12 @@
 namespace Telkins\Validation\Tests;
 
 use Illuminate\Support\Facades\Validator;
-use Telkins\Validation\Tests\TestRuleSets\NewEmailRuleSet;
 use Telkins\Validation\Tests\TestRuleSets\NewConfirmedEmailRuleSet;
+use Telkins\Validation\Tests\TestRuleSets\NewEmailRuleSet;
 
 class FieldRuleSetTest extends TestCase
 {
-    protected function getError($key, $attribute, $extra = []) : string
+    protected function getError($key, $attribute, $extra = []): string
     {
         return __($key, array_merge(['attribute' => str_replace('_', ' ', $attribute)], $extra));
     }
@@ -31,6 +31,7 @@ class FieldRuleSetTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider providesInvalidValues
      */
     public function it_returns_the_expected_validation_message($value, $errorKey, $extra = [])
