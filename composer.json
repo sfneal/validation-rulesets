@@ -1,11 +1,11 @@
 {
-    "name": "inflection-points/laravel-validation-rulesets",
+    "name": "sfneal/validation-rulesets",
     "description": "A simple way to keep your Laravel validation rules a bit more DRY.",
     "keywords": [
         "telkins",
-        "laravel-validation-rulesets"
+        "validation-rulesets"
     ],
-    "homepage": "https://github.com/inflection-points/laravel-validation-rulesets",
+    "homepage": "https://github.com/sfneal/validation-rulesets",
     "license": "MIT",
     "authors": [
         {
