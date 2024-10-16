@@ -52,7 +52,7 @@ class FieldRuleSetTest extends TestCase
     {
         $attribute = 'email_address';
 
-        $rule = (new NewEmailRuleSet)->except('required', 'email');
+        $rule = (new NewEmailRuleSet())->except('required', 'email');
 
         $this->assertTrue($rule->passes($attribute, null));
     }
@@ -82,7 +82,7 @@ class FieldRuleSetTest extends TestCase
     public function it_plays_nice_with_confirmed_and_request_data()
     {
         $requestData = [
-            'email_address' => 'me@mydomain.com',
+            'email_address'              => 'me@mydomain.com',
             'email_address_confirmation' => 'me@mydomain.com',
         ];
 
@@ -95,7 +95,7 @@ class FieldRuleSetTest extends TestCase
     public function it_plays_nice_with_separate_confirmed_and_no_request_data()
     {
         $requestData = [
-            'email_address' => 'me@mydomain.com',
+            'email_address'              => 'me@mydomain.com',
             'email_address_confirmation' => 'me@mydomain.com',
         ];
 
@@ -138,7 +138,8 @@ class FieldRuleSetTest extends TestCase
             [
                 $attribute => 'me@mydomain.com',
                 // NO CONFIRMATION...!
-            ], [
+            ],
+            [
                 $attribute => [
                     new NewEmailRuleSet(),
                     'confirmed',
