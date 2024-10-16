@@ -1,0 +1,16 @@
+name: Issue Assignment
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  auto-assign:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Auto assign issue'
+        uses: pozil/auto-assign-issue@v2
+        with:
+          assignees: sfneal
+          numOfAssignee: 1
+          allowSelfAssign: true

@@ -1,0 +1,5 @@
+# Set addAssignees to 'author' to set the PR creator as the assignee.
+addAssignees: author
+
+# Run on drafts
+runOnDraft: true
