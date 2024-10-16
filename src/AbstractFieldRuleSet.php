@@ -25,13 +25,12 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     /**
      * Use the rule set without the specified rules.
      *
-     * @param mixed $rules
-     *
+     * @param  mixed  $rules
      * @return self
      */
     public function except($rules): self
     {
-        $this->except = !is_array($rules) ? func_get_args() : $rules;
+        $this->except = ! is_array($rules) ? func_get_args() : $rules;
 
         return $this;
     }
@@ -39,9 +38,8 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     /**
      * Determine if the validation rule passes.
      *
-     * @param string $attribute
-     * @param mixed  $value
-     *
+     * @param  string  $attribute
+     * @param  mixed  $value
      * @return bool
      */
     public function passes($attribute, $value): bool
@@ -52,10 +50,9 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     abstract public function rules(): array;
 
     /**
-     * @param mixed             $value
-     * @param array|string|Rule $rules
-     * @param string            $name  Name of the property (optional)
-     *
+     * @param  mixed  $value
+     * @param  array|string|Rule  $rules
+     * @param  string  $name  Name of the property (optional)
      * @return bool
      */
     protected function validate($value, $rules, string $name = 'variable'): bool
@@ -72,13 +69,12 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
     /**
      * Prepare the rules.
      *
-     * @param mixed $rules
-     *
+     * @param  mixed  $rules
      * @return array
      */
     protected function prepareRules($rules): array
     {
-        if (!is_string($rules) && !is_array($rules)) {
+        if (! is_string($rules) && ! is_array($rules)) {
             $rules = [$rules];
         }
 
@@ -108,9 +104,8 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
      * Get the validation rules with exceptions removed.
      * - optionally 'prepend' or 'append' additional rules.
      *
-     * @param array $prepend
-     * @param array $append
-     *
+     * @param  array  $prepend
+     * @param  array  $append
      * @return array
      */
     public function getRules(array $prepend = [], array $append = []): array
@@ -122,9 +117,8 @@ abstract class AbstractFieldRuleSet implements Rule, FieldRuleSetContract
      * Get the validation rules with exceptions removed & 'required' rule prepended.
      * - optionally 'prepend' or 'append' additional rules.
      *
-     * @param array $prepend
-     * @param array $append
-     *
+     * @param  array  $prepend
+     * @param  array  $append
      * @return array
      */
     public function getRulesRequired(array $prepend = [], array $append = []): array

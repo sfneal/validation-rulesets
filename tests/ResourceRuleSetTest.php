@@ -89,8 +89,8 @@ class ResourceRuleSetTest extends TestCase
     {
         $requestData = [
             'author_id' => 1234,
-            'subject'   => 'My First Post',
-            'body'      => 'This is my first post.',
+            'subject' => 'My First Post',
+            'body' => 'This is my first post.',
         ];
 
         $validator = Validator::make($requestData, (new PostRuleSet())->creationRules());
@@ -111,14 +111,14 @@ class ResourceRuleSetTest extends TestCase
         $this->assertEquals($this->getError($errorKey, $errorAttribute, $extra), $validator->errors()->first());
     }
 
-    public function providesInvalidCreationData()
+    public static function providesInvalidCreationData()
     {
         return [
             [
                 [
                     // 'author_id' => 1234,
                     'subject' => 'My First Post',
-                    'body'    => 'This is my first post.',
+                    'body' => 'This is my first post.',
                 ],
                 'validation.required',
                 'author_id',
@@ -135,8 +135,8 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'author_id' => 1234,
-                    'subject'   => str_repeat('x', 256),
-                    'body'      => 'This is my first post.',
+                    'subject' => str_repeat('x', 256),
+                    'body' => 'This is my first post.',
                 ],
                 'validation.max.string',
                 'subject',
@@ -145,8 +145,8 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'author_id' => 1234,
-                    'subject'   => 'My First Post',
-                    'body'      => str_repeat('x', 1025),
+                    'subject' => 'My First Post',
+                    'body' => str_repeat('x', 1025),
                 ],
                 'validation.max.string',
                 'body',
@@ -162,7 +162,7 @@ class ResourceRuleSetTest extends TestCase
     {
         $requestData = [
             'subject' => 'My Corrected Subject',
-            'reason'  => 'The subject was incorrect.',
+            'reason' => 'The subject was incorrect.',
         ];
 
         $validator = Validator::make($requestData, (new PostRuleSet())->updateRules());
@@ -183,13 +183,13 @@ class ResourceRuleSetTest extends TestCase
         $this->assertEquals($this->getError($errorKey, $errorAttribute, $extra), $validator->errors()->first());
     }
 
-    public function providesInvalidUpdateData()
+    public static function providesInvalidUpdateData()
     {
         return [
             [
                 [
                     'subject' => str_repeat('x', 256),
-                    'reason'  => 'I wanted to make a very long subject.',
+                    'reason' => 'I wanted to make a very long subject.',
                 ],
                 'validation.max.string',
                 'subject',
@@ -197,7 +197,7 @@ class ResourceRuleSetTest extends TestCase
             ],
             [
                 [
-                    'body'   => str_repeat('x', 1025),
+                    'body' => str_repeat('x', 1025),
                     'reason' => 'I wanted to make a very long post.',
                 ],
                 'validation.max.string',
@@ -207,7 +207,7 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'subject' => 'My Corrected Subject',
-                    'body'    => 'My corrected post.',
+                    'body' => 'My corrected post.',
                     // 'reason' => 'This is my first post.',
                 ],
                 'validation.required',

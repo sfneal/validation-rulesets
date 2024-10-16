@@ -13,13 +13,15 @@ class MakeResourceRuleSetCommandTest extends TestCase
     public function it_can_create_a_resource_rule_set()
     {
         $exitCode = Artisan::call('make:resource-rule-set', [
-            'name'    => 'PostRuleSet',
+            'name' => 'PostRuleSet',
             '--force' => true,
         ]);
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ResourceRuleSet created successfully.', Artisan::output());
+        $output = Artisan::output();
+        $this->assertStringContainsString('ResourceRuleSet', $output);
+        $this->assertStringContainsString('created successfully.', $output);
 
         $shouldOutputFilePath = $this->app['path'].'/Rules/ResourceRuleSets/PostRuleSet.php';
 
@@ -38,13 +40,15 @@ class MakeResourceRuleSetCommandTest extends TestCase
     public function it_can_create_a_resource_rule_set_with_a_custom_namespace()
     {
         $exitCode = Artisan::call('make:resource-rule-set', [
-            'name'    => 'MyResourceRuleSets/PostRuleSet',
+            'name' => 'MyResourceRuleSets/PostRuleSet',
             '--force' => true,
         ]);
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('ResourceRuleSet created successfully.', Artisan::output());
+        $output = Artisan::output();
+        $this->assertStringContainsString('ResourceRuleSet', $output);
+        $this->assertStringContainsString('created successfully.', $output);
 
         $shouldOutputFilePath = $this->app['path'].'/MyResourceRuleSets/PostRuleSet.php';
 
