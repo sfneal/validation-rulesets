@@ -15,7 +15,7 @@ jobs:
                 dependency-version: [prefer-lowest, prefer-stable]
                 dev-dependencies: [dev, no-dev]
 
-        name: Composer Dependencies | PHP ${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.dev-dependencies }}
+        name: PHP ${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.dev-dependencies }}
 
         steps:
             -   name: Checkout code
