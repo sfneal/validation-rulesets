@@ -6,7 +6,7 @@ use Telkins\Validation\AbstractFieldRuleSet;
 
 class NewConfirmedEmailRuleSet extends AbstractFieldRuleSet
 {
-    public function rules() : array
+    public function rules(): array
     {
         return [
             'required',
