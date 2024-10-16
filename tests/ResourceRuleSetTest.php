@@ -2,13 +2,13 @@
 
 namespace Telkins\Validation\Tests;
 
-use OutOfBoundsException;
 use Illuminate\Support\Facades\Validator;
+use OutOfBoundsException;
 use Telkins\Validation\Tests\TestRuleSets\PostRuleSet;
 
 class ResourceRuleSetTest extends TestCase
 {
-    protected function getError($key, $attribute, $extra = []) : string
+    protected function getError($key, $attribute, $extra = []): string
     {
         return __($key, array_merge(['attribute' => str_replace('_', ' ', $attribute)], $extra));
     }
@@ -100,6 +100,7 @@ class ResourceRuleSetTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider providesInvalidCreationData
      */
     public function it_invalidates_invalid_creation_data($requestData, $errorKey, $errorAttribute, $extra = [])
@@ -171,6 +172,7 @@ class ResourceRuleSetTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider providesInvalidUpdateData
      */
     public function it_invalidates_invalid_update_data($requestData, $errorKey, $errorAttribute, $extra = [])
