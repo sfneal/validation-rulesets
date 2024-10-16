@@ -25,5 +25,5 @@ class MakeResourceRuleSet extends AbstractMakeRuleSet
      */
     protected $type = 'ResourceRuleSet';
 
-    protected $stub = __DIR__ . '/../../../stubs/DummyResourceRuleSet.stub';
+    protected $stub = __DIR__.'/../../../stubs/DummyResourceRuleSet.stub';
 }

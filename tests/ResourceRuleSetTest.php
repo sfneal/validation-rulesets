@@ -2,13 +2,13 @@
 
 namespace Telkins\Validation\Tests;
 
-use OutOfBoundsException;
 use Illuminate\Support\Facades\Validator;
+use OutOfBoundsException;
 use Telkins\Validation\Tests\TestRuleSets\PostRuleSet;
 
 class ResourceRuleSetTest extends TestCase
 {
-    protected function getError($key, $attribute, $extra = []) : string
+    protected function getError($key, $attribute, $extra = []): string
     {
         return __($key, array_merge(['attribute' => str_replace('_', ' ', $attribute)], $extra));
     }
@@ -89,8 +89,8 @@ class ResourceRuleSetTest extends TestCase
     {
         $requestData = [
             'author_id' => 1234,
-            'subject' => 'My First Post',
-            'body' => 'This is my first post.',
+            'subject'   => 'My First Post',
+            'body'      => 'This is my first post.',
         ];
 
         $validator = Validator::make($requestData, (new PostRuleSet())->creationRules());
@@ -100,6 +100,7 @@ class ResourceRuleSetTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider providesInvalidCreationData
      */
     public function it_invalidates_invalid_creation_data($requestData, $errorKey, $errorAttribute, $extra = [])
@@ -117,7 +118,7 @@ class ResourceRuleSetTest extends TestCase
                 [
                     // 'author_id' => 1234,
                     'subject' => 'My First Post',
-                    'body' => 'This is my first post.',
+                    'body'    => 'This is my first post.',
                 ],
                 'validation.required',
                 'author_id',
@@ -134,8 +135,8 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'author_id' => 1234,
-                    'subject' => str_repeat('x', 256),
-                    'body' => 'This is my first post.',
+                    'subject'   => str_repeat('x', 256),
+                    'body'      => 'This is my first post.',
                 ],
                 'validation.max.string',
                 'subject',
@@ -144,8 +145,8 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'author_id' => 1234,
-                    'subject' => 'My First Post',
-                    'body' => str_repeat('x', 1025),
+                    'subject'   => 'My First Post',
+                    'body'      => str_repeat('x', 1025),
                 ],
                 'validation.max.string',
                 'body',
@@ -161,7 +162,7 @@ class ResourceRuleSetTest extends TestCase
     {
         $requestData = [
             'subject' => 'My Corrected Subject',
-            'reason' => 'The subject was incorrect.',
+            'reason'  => 'The subject was incorrect.',
         ];
 
         $validator = Validator::make($requestData, (new PostRuleSet())->updateRules());
@@ -171,6 +172,7 @@ class ResourceRuleSetTest extends TestCase
 
     /**
      * @test
+     *
      * @dataProvider providesInvalidUpdateData
      */
     public function it_invalidates_invalid_update_data($requestData, $errorKey, $errorAttribute, $extra = [])
@@ -187,7 +189,7 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'subject' => str_repeat('x', 256),
-                    'reason' => 'I wanted to make a very long subject.',
+                    'reason'  => 'I wanted to make a very long subject.',
                 ],
                 'validation.max.string',
                 'subject',
@@ -195,7 +197,7 @@ class ResourceRuleSetTest extends TestCase
             ],
             [
                 [
-                    'body' => str_repeat('x', 1025),
+                    'body'   => str_repeat('x', 1025),
                     'reason' => 'I wanted to make a very long post.',
                 ],
                 'validation.max.string',
@@ -205,7 +207,7 @@ class ResourceRuleSetTest extends TestCase
             [
                 [
                     'subject' => 'My Corrected Subject',
-                    'body' => 'My corrected post.',
+                    'body'    => 'My corrected post.',
                     // 'reason' => 'This is my first post.',
                 ],
                 'validation.required',

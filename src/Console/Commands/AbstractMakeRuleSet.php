@@ -2,8 +2,8 @@
 
 namespace Telkins\Validation\Console\Commands;
 
-use Illuminate\Support\Str;
 use Illuminate\Console\GeneratorCommand;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 abstract class AbstractMakeRuleSet extends GeneratorCommand
@@ -44,7 +44,8 @@ abstract class AbstractMakeRuleSet extends GeneratorCommand
     /**
      * Get the default namespace for the class.
      *
-     * @param  string  $rootNamespace
+     * @param string $rootNamespace
+     *
      * @return string
      */
     protected function getDefaultNamespace($rootNamespace)
