@@ -16,11 +16,11 @@
     ],
     "require": {
         "php": "^7.3 || ^8.0 || ^8.1 || ^8.2 || ^8.3",
-        "illuminate/support": "^8.83|^9.0"
+        "laravel/framework": "^9.0|^10.0|^11.0"
     },
     "require-dev": {
-        "orchestra/testbench": "^5.0|^6.0",
-        "phpunit/phpunit": "^9.3"
+        "orchestra/testbench": "^7.40|^8.0|^9.0",
+        "phpunit/phpunit": "^9.6|^10.0|^11.0"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +35,6 @@
     "scripts": {
         "test": "vendor/bin/phpunit",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
-
     },
     "config": {
         "sort-packages": true
