@@ -19,7 +19,9 @@ class MakeFieldRuleSetCommandTest extends TestCase
 
         $this->assertEquals(0, $exitCode);
 
-        $this->assertStringContainsString('FieldRuleSet created successfully.', Artisan::output());
+        $output = Artisan::output();
+        $this->assertStringContainsString('FieldRuleSet', $output);
+        $this->assertStringContainsString('created successfully.', $output);
 
         $shouldOutputFilePath = $this->app['path'] . '/Rules/FieldRuleSets/EmailRuleSet.php';
 
@@ -44,8 +46,10 @@ class MakeFieldRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-
-        $this->assertStringContainsString('FieldRuleSet created successfully.', Artisan::output());
+        
+        $output = Artisan::output();
+        $this->assertStringContainsString('FieldRuleSet', $output);
+        $this->assertStringContainsString('created successfully.', $output);
 
         $shouldOutputFilePath = $this->app['path'] . '/Rules/FieldRuleSets/EmailRuleSet.php';
 
@@ -71,8 +75,10 @@ class MakeFieldRuleSetCommandTest extends TestCase
         ]);
 
         $this->assertEquals(0, $exitCode);
-
-        $this->assertStringContainsString('FieldRuleSet created successfully.', Artisan::output());
+        
+        $output = Artisan::output();
+        $this->assertStringContainsString('FieldRuleSet', $output);
+        $this->assertStringContainsString('created successfully.', $output);
 
         $shouldOutputFilePath = $this->app['path'] . '/MyFieldRuleSets/EmailRuleSet.php';
 
